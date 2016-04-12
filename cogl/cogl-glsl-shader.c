@@ -87,8 +87,8 @@ _cogl_glsl_shader_set_source_with_boilerplate (CoglContext *ctx,
   const char *vertex_boilerplate;
   const char *fragment_boilerplate;
 
-  const char **strings = g_alloca (sizeof (char *) * (count_in + 4));
-  GLint *lengths = g_alloca (sizeof (GLint) * (count_in + 4));
+  const char **strings = g_alloca (sizeof (char *) * (count_in + 5));
+  GLint *lengths = g_alloca (sizeof (GLint) * (count_in + 5));
   char *version_string;
   int count = 0;
 
@@ -109,6 +109,15 @@ _cogl_glsl_shader_set_source_with_boilerplate (CoglContext *ctx,
         "#extension GL_OES_texture_3D : enable\n";
       strings[count] = texture_3d_extension;
       lengths[count++] = sizeof (texture_3d_extension) - 1;
+    }
+
+  if (_cogl_has_private_feature (ctx, COGL_PRIVATE_FEATURE_GL_PROGRAMMABLE) &&
+      cogl_has_feature (ctx, COGL_FEATURE_ID_SHADER_TEXTURE_LOD))
+    {
+      static const char shader_texture_lod_ext[] =
+        "#extension GL_ARB_shader_texture_lod : enable\n";
+      strings[count] = shader_texture_lod_ext;
+      lengths[count++] = sizeof (shader_texture_lod_ext) - 1;
     }
 
   if (shader_gl_type == GL_VERTEX_SHADER)

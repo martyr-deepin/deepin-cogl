@@ -470,7 +470,8 @@ typedef enum
   COGL_FEATURE_MAP_BUFFER_FOR_READ    = (1 << 21),
   COGL_FEATURE_MAP_BUFFER_FOR_WRITE   = (1 << 22),
   COGL_FEATURE_ONSCREEN_MULTIPLE      = (1 << 23),
-  COGL_FEATURE_DEPTH_TEXTURE          = (1 << 24)
+  COGL_FEATURE_DEPTH_TEXTURE          = (1 << 24),
+  COGL_FEATURE_SHADER_TEXTURE_LOD     = (1 << 25)
 } CoglFeatureFlags;
 
 /**

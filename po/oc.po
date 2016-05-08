@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: cogl master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=cogl&ke"
 "ywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-18 16:20+0000\n"
-"PO-Revision-Date: 2016-02-29 20:53+0200\n"
+"POT-Creation-Date: 2016-04-29 15:24+0000\n"
+"PO-Revision-Date: 2016-05-08 17:18+0200\n"
 "Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot En Òc\n"
 "Language: oc\n"
@@ -250,9 +250,9 @@ msgid ""
 "When this is set the glyph cache will always use a separate texture for its "
 "atlas. Otherwise it will try to share the atlas with images."
 msgstr ""
-"Quand aquò es activat, lo cache dels glifes ensajarà totjorn d'utilizar "
-"una textura separada per son atlàs. Autrament, ensajarà de partejar l'atlàs "
-"amb los imatges."
+"Quand aquò es activat, lo cache dels glifes ensajarà totjorn d'utilizar una "
+"textura separada per son atlàs. Autrament, ensajarà de partejar l'atlàs amb "
+"los imatges."
 
 #: cogl/cogl-debug-options.h:131
 msgid "Disable texturing"
@@ -322,7 +322,7 @@ msgstr "Afichar la font"
 
 #: cogl/cogl-debug-options.h:168
 msgid "Show generated ARBfp/GLSL source code"
-msgstr "Aficha lo còde font ARBfp/GLSL produch"
+msgstr "Aficha lo còdi font ARBfp/GLSL produit"
 
 #: cogl/cogl-debug-options.h:172
 msgid "Trace some OpenGL"

@@ -1,3 +1,24 @@
+Cogl 1.22.2                                                        2016-08-25
+
+  • List of changes since Cogl 1.22.0
+
+  » Skip journal dumping if not supported [#728355]
+  » Support glMapBufferRange from ES3 [#728355]
+  » Improvements in the KMS winsys [#756926, #758073]
+  » Require gettext 0.19 to avoid hacks [#760285]
+  » Respect the Wayland spec for EGL surface creation [#765351]
+
+Many thanks to:
+
+  Cédric Valmary
+  Emmanuele Bassi
+  Ray Strode
+  Daniel Stone
+  Piotr Drąg
+  Javier Jardón
+  Murray Cumming
+  Sjoerd Simons
+
 Cogl 1.22.0                                                        2015-09-16
 
   • List of changes since Cogl 1.21.2

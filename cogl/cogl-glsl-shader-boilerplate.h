@@ -46,6 +46,9 @@
  * this will happen for varyings but it doesn't explicitly so for
  * attributes */
 #define _COGL_VERTEX_SHADER_BOILERPLATE \
+  "#ifdef GL_ES\n" \
+  "precision mediump sampler3D;\n" \
+  "#endif\n" \
   _COGL_COMMON_SHADER_BOILERPLATE \
   "#define cogl_color_out _cogl_color\n" \
   "varying vec4 _cogl_color;\n" \
@@ -61,6 +64,7 @@
 #define _COGL_FRAGMENT_SHADER_BOILERPLATE \
   "#ifdef GL_ES\n" \
   "precision highp float;\n" \
+  "precision mediump sampler3D;\n" \
   "#endif\n" \
   _COGL_COMMON_SHADER_BOILERPLATE \
   "\n" \

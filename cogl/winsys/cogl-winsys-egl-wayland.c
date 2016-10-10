@@ -785,6 +785,8 @@ cogl_wayland_onscreen_resize (CoglOnscreen *onscreen,
 
       if (cogl_framebuffer_get_width (fb) != width ||
           cogl_framebuffer_get_height (fb) != height ||
+          wayland_onscreen->pending_width != width ||
+          wayland_onscreen->pending_height != height ||
           offset_x ||
           offset_y)
         {

@@ -1027,6 +1027,7 @@ cogl_atlas_texture_vtable =
     FALSE, /* not primitive */
     _cogl_atlas_texture_allocate,
     _cogl_atlas_texture_set_region,
+    NULL, /* copy_sub_image */
     NULL, /* get_data */
     _cogl_atlas_texture_foreach_sub_texture_in_region,
     _cogl_atlas_texture_get_max_waste,

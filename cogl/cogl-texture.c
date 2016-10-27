@@ -514,6 +514,29 @@ cogl_texture_set_region (CoglTexture *texture,
 }
 
 CoglBool
+cogl_texture_copy_sub_image (CoglTexture *texture,
+                int xoffset, int yoffset,
+                int x, int y, size_t width, size_t height)
+{
+  CoglError *ignore_error = NULL;
+  CoglBool status;
+
+  if (!texture->allocated)
+    cogl_texture_allocate (texture, NULL);
+
+  if (!texture->vtable->copy_sub_image)
+      return False;
+
+  status = texture->vtable->copy_sub_image (texture,
+                                          xoffset, yoffset,
+                                          x, y, width, height, &ignore_error);
+  if (!status)
+    cogl_error_free (ignore_error);
+  return status;
+}
+
+
+CoglBool
 cogl_texture_set_data (CoglTexture *texture,
                        CoglPixelFormat format,
                        int rowstride,

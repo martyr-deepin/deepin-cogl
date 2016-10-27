@@ -476,6 +476,7 @@ _cogl_driver_gles =
     _cogl_texture_2d_gl_get_gl_handle,
     _cogl_texture_2d_gl_generate_mipmap,
     _cogl_texture_2d_gl_copy_from_bitmap,
+    _cogl_texture_2d_gl_copy_sub_image,
     NULL, /* texture_2d_get_data */
     _cogl_gl_flush_attributes_state,
     _cogl_clip_stack_gl_flush,

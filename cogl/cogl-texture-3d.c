@@ -741,6 +741,7 @@ cogl_texture_3d_vtable =
     TRUE, /* primitive */
     _cogl_texture_3d_allocate,
     _cogl_texture_3d_set_region,
+    NULL, /* copy_sub_image */
     _cogl_texture_3d_get_data,
     NULL, /* foreach_sub_texture_in_region */
     _cogl_texture_3d_get_max_waste,

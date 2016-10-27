@@ -399,6 +399,11 @@ cogl_texture_set_region (CoglTexture *texture,
                          unsigned int rowstride,
                          const uint8_t *data);
 
+CoglBool
+cogl_texture_copy_sub_image (CoglTexture *texture,
+                int xoffset, int yoffset,
+                int x, int y, size_t width, size_t height);
+
 #if defined (COGL_ENABLE_EXPERIMENTAL_API)
 
 /**

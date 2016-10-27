@@ -1526,6 +1526,7 @@ cogl_texture_2d_sliced_vtable =
     FALSE, /* not primitive */
     _cogl_texture_2d_sliced_allocate,
     _cogl_texture_2d_sliced_set_region,
+    NULL, /* copy_sub_image */
     NULL, /* get_data */
     _cogl_texture_2d_sliced_foreach_sub_texture_in_region,
     _cogl_texture_2d_sliced_get_max_waste,

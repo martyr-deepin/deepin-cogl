@@ -109,6 +109,11 @@ _cogl_texture_2d_gl_copy_from_bitmap (CoglTexture2D *tex_2d,
                                       int dst_y,
                                       int level,
                                       CoglError **error);
+CoglBool
+_cogl_texture_2d_gl_copy_sub_image (CoglTexture2D *tex_2d,
+                                GLint xoffset, GLint yoffset,
+                                GLint x, GLint y, GLsizei width, GLsizei height,
+                                CoglError **error);
 
 void
 _cogl_texture_2d_gl_get_data (CoglTexture2D *tex_2d,

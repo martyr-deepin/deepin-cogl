@@ -628,6 +628,27 @@ _cogl_texture_2d_set_region (CoglTexture *tex,
 }
 
 static CoglBool
+_cogl_texture_2d_copy_sub_image (CoglTexture *tex,
+                GLint xoffset, GLint yoffset,
+                GLint x, GLint y, GLsizei width, GLsizei height,
+                             CoglError **error)
+{
+  CoglContext *ctx = tex->context;
+  CoglTexture2D *tex_2d = COGL_TEXTURE_2D (tex);
+
+  cogl_texture_allocate (tex, NULL); /* (abort on error) */
+
+  ctx->driver_vtable->texture_2d_copy_sub_image (tex_2d, 
+          xoffset, yoffset,
+          x, y, width, height,
+          error);
+
+  tex_2d->mipmaps_dirty = TRUE;
+
+  return TRUE;
+}
+
+static CoglBool
 _cogl_texture_2d_get_data (CoglTexture *tex,
                            CoglPixelFormat format,
                            int rowstride,
@@ -675,6 +696,7 @@ cogl_texture_2d_vtable =
     TRUE, /* primitive */
     _cogl_texture_2d_allocate,
     _cogl_texture_2d_set_region,
+    _cogl_texture_2d_copy_sub_image,
     _cogl_texture_2d_get_data,
     NULL, /* foreach_sub_texture_in_region */
     _cogl_texture_2d_get_max_waste,

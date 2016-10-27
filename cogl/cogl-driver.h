@@ -192,6 +192,12 @@ struct _CoglDriverVtable
                                    int level,
                                    CoglError **error);
 
+  CoglBool
+  (* texture_2d_copy_sub_image) (CoglTexture2D *tex_2d,
+                                GLint xoffset, GLint yoffset,
+                                GLint x, GLint y, GLsizei width, GLsizei height,
+                                CoglError **error);
+
   /* Reads back the full contents of the given texture and write it to
    * @data in the given @format and with the given @rowstride.
    *

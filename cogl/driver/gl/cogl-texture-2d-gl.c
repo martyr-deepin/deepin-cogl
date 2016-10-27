@@ -35,6 +35,7 @@
 #include <config.h>
 
 #include <string.h>
+#include <stdio.h>
 
 #include "cogl-private.h"
 #include "cogl-texture-private.h"
@@ -717,6 +718,37 @@ _cogl_texture_2d_gl_copy_from_bitmap (CoglTexture2D *tex_2d,
   _cogl_texture_gl_maybe_update_max_level (tex, level);
 
   return status;
+}
+
+CoglBool
+_cogl_texture_2d_gl_copy_sub_image (CoglTexture2D *tex_2d,
+                                GLint xoffset, GLint yoffset,
+                                GLint x, GLint y, GLsizei width, GLsizei height,
+                                CoglError **error)
+{
+  CoglContext *ctx = COGL_TEXTURE (tex_2d)->context;
+
+  if (ctx->current_read_buffer == NULL)
+    return False;
+
+  if (ctx->current_draw_buffer)
+      _cogl_framebuffer_flush_journal (ctx->current_draw_buffer);
+
+  if (ctx->current_read_buffer != NULL &&
+          ctx->current_read_buffer != ctx->current_draw_buffer)
+      _cogl_framebuffer_flush_journal (ctx->current_read_buffer);
+
+  _cogl_bind_gl_texture_transient (GL_TEXTURE_2D,
+                                   tex_2d->gl_texture,
+                                   tex_2d->is_foreign);
+
+  ctx->glCopyTexSubImage2D (GL_TEXTURE_2D,
+                            0,
+                            xoffset, yoffset,
+                            x, y,
+                            width, height);
+
+  return True;
 }
 
 void

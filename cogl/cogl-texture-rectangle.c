@@ -761,6 +761,7 @@ cogl_texture_rectangle_vtable =
     TRUE, /* primitive */
     _cogl_texture_rectangle_allocate,
     _cogl_texture_rectangle_set_region,
+    NULL, /* copy_sub_image */
     _cogl_texture_rectangle_get_data,
     NULL, /* foreach_sub_texture_in_region */
     _cogl_texture_rectangle_get_max_waste,

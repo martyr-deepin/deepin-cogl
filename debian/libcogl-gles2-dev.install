@@ -1,0 +1,4 @@
+usr/lib/*/libcogl-gles2.so
+usr/lib/*/pkgconfig/cogl-gles2-1.0.pc
+usr/lib/*/pkgconfig/cogl-gles2-2.0-experimental.pc
+usr/include/cogl/cogl-gles2

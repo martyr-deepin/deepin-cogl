@@ -1,0 +1,3 @@
+usr/lib/*/libcogl-path.so
+usr/lib/*/pkgconfig/cogl-path-*.pc
+usr/include/cogl/cogl-path

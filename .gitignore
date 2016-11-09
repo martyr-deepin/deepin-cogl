@@ -67,7 +67,6 @@ depcomp
 /examples/cogl-x11-foreign
 /examples/cogl-x11-tfp
 /examples/cogland
-gtk-doc.make
 install-sh
 libtool
 ltmain.sh

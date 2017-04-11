@@ -127,7 +127,9 @@ typedef struct _CoglTexturePixmapGLX
 #define COGL_WINSYS_FEATURE_END()               \
   { NULL, 0 },                                  \
     };
+#define COGL_DISABLE_SYNC_CONTROL
 #include "cogl-winsys-glx-feature-functions.h"
+#undef COGL_DISABLE_SYNC_CONTROL
 
 /* Define an array of features */
 #undef COGL_WINSYS_FEATURE_BEGIN
@@ -148,7 +150,9 @@ typedef struct _CoglTexturePixmapGLX
 
 static const CoglFeatureData winsys_feature_data[] =
   {
+#define COGL_DISABLE_SYNC_CONTROL
 #include "cogl-winsys-glx-feature-functions.h"
+#undef COGL_DISABLE_SYNC_CONTROL
   };
 
 static CoglFuncPtr
@@ -704,6 +708,9 @@ update_base_winsys_features (CoglRenderer *renderer)
                           winsys_feature_data[i].winsys_feature,
                           TRUE);
       }
+
+  glx_renderer->glXGetSyncValues = NULL;
+  glx_renderer->glXWaitForMsc = NULL;
 
   g_strfreev (split_extensions);
 
@@ -1628,6 +1635,8 @@ _cogl_winsys_wait_for_vblank (CoglOnscreen *onscreen)
           int64_t ust;
           int64_t msc;
           int64_t sbc;
+
+          g_assert_not_reached ();
 
           glx_renderer->glXWaitForMsc (xlib_renderer->xdpy, drawable,
                                        0, 1, 0,

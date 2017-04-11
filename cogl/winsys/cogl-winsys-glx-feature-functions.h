@@ -135,6 +135,7 @@ COGL_WINSYS_FEATURE_FUNCTION (int, glXSwapInterval,
                               (int interval))
 COGL_WINSYS_FEATURE_END ()
 
+#ifndef COGL_DISABLE_SYNC_CONTROL
 COGL_WINSYS_FEATURE_BEGIN (255, 255,
                            sync_control,
                            "OML\0",
@@ -157,6 +158,7 @@ COGL_WINSYS_FEATURE_FUNCTION (Bool, glXWaitForMsc,
                                int64_t* msc,
                                int64_t* sbc))
 COGL_WINSYS_FEATURE_END ()
+#endif
 
 COGL_WINSYS_FEATURE_BEGIN (255, 255,
                            copy_sub_buffer,
